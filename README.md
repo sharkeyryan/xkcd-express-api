@@ -1,10 +1,10 @@
 # XKCD REST API Using NodeJS Express
 
-XKCD Web comics or awesome. :)
+XKCD Web comics are awesome. :)
 
 https://xkcd.com/
 
-This is a REST API service using NodeJS Express to allow for integrating with the XKCD API.
+This is a REST API service using NodeJS Express to allow for integration with the XKCD API.
 
 ## Example ##
 

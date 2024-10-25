@@ -1,6 +1,26 @@
 const express = require('express');
 const request = require('request');
 const app = express();
+
+const cors = require('cors');
+
+const corsOptions = {
+  origin: 'http://localhost:3004',
+  optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
+
+const helmet = require('helmet');
+
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      'script-src': ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https:", "chrome-extension:"],
+    },
+  },
+}));
+
 const PORT = 3005;
 
 app.get('/comic', (req, res) => {
@@ -62,7 +82,7 @@ async function fetchXKCDData(url) {
     var body_parsed = JSON.parse(body);
 
     data = {
-      "title": `${body_parsed.title} (#${body_parsed.num})`,
+      "title": `${body_parsed.title}`,
       "num": body_parsed.num,
       "title_link": `https://xkcd.com/${body_parsed.num}/`,
       "image_url": body_parsed.img,

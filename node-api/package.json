@@ -10,7 +10,9 @@
   "license": "ISC",
   "description": "Basic XKCD API Service",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.21.1",
+    "helmet": "^8.0.0",
     "request": "^2.88.2"
   }
 }

@@ -1,8 +1,23 @@
-version: '3.7'
-
 services:
   node-api:
-    build: .
+    build:
+      context: ./node-api
+      dockerfile: Dockerfile
+    container_name: node-api-container
     ports:
-      - "3005:3005"
+      - '3005:3005'
+    volumes:
+      - ./node-api:/app
+
+  react-app:
+    build:
+      context: ./react-app
+      dockerfile: Dockerfile
+    container_name: react-app-container
+    ports:
+      - '3004:3004'
+    volumes:
+      - ./react-app:/app
+    depends_on:
+      - node-api
       

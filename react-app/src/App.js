@@ -14,12 +14,12 @@ function App() {
     try {
       const response = await fetch('http://localhost:3005/comic?comic=random');
 
-      console.log(response);
-
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
+
       const result = await response.json();
+      
       setData(result);
       setLoading(false);
     } catch (e) {
